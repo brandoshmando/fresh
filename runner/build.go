@@ -9,7 +9,7 @@ import (
 )
 
 func build() (string, bool) {
-	buildLog(fmt.Sprintf("Building %s/%s", buildPath(), root()))
+	buildLog(fmt.Sprintf("Building %s", root()))
 
 	cmd := exec.Command("go", "build", "-o", buildPath(), root())
 
