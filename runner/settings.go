@@ -20,6 +20,7 @@ const (
 var settings = map[string]string{
 	"config_path":       "./runner.conf",
 	"root":              ".",
+	"watch_root":        "",
 	"tmp_path":          "./tmp",
 	"build_name":        "runner-build",
 	"build_log":         "runner-build-errors.log",
@@ -110,6 +111,15 @@ func getenv(key, defaultValue string) string {
 
 func root() string {
 	return settings["root"]
+}
+
+func watchRoot() string {
+	watch := settings["root"]
+	if w := settings["watch_root"]; len(w) > 0 {
+		watch = w
+	}
+
+	return watch
 }
 
 func tmpPath() string {

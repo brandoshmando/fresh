@@ -1,6 +1,7 @@
 package runner
 
 import (
+	"fmt"
 	"io"
 	"io/ioutil"
 	"os"
@@ -8,7 +9,7 @@ import (
 )
 
 func build() (string, bool) {
-	buildLog("Building...")
+	buildLog(fmt.Sprintf("Building %s/%s", buildPath(), root()))
 
 	cmd := exec.Command("go", "build", "-o", buildPath(), root())
 
